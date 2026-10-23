@@ -1,12 +1,12 @@
 """
-analyzer.py
+review_analyzer.py
 Send ONE review to Jev (all 14 questions in one request)
 and turn the answers into star ratings per topic.
 """
 
 from dotenv import load_dotenv
 from typesafe_sdk import TypeSafeClient
-from questions import QUESTIONS, TOPICS
+from review_questions import QUESTIONS, TOPICS
 
 # Load TYPESAFE_API_KEY from the .env file, then create the Jev client
 load_dotenv()

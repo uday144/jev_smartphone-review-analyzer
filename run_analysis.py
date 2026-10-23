@@ -1,5 +1,5 @@
 """
-main.py
+run_analysis.py
 1. Read the reviews CSV
 2. Analyze every review with Jev
 3. Print a Flipkart-style summary
@@ -7,15 +7,16 @@ main.py
 
 import csv
 
-from questions import TOPICS
-from analyzer import analyze_review
-from aggregation import aggregate
+from review_questions import TOPICS
+from review_analyzer import analyze_review
+from rating_aggregation import aggregate
 
-INPUT_FILE = "synthetic_phone_reviews.csv"
+INPUT_FILE = "smartphone_reviews.csv"
+REVIEW_LIMIT = 5  # Temporary: limit API calls while testing
 
 # 1. Read the reviews
 with open(INPUT_FILE, encoding="utf-8") as f:
-    reviews = list(csv.DictReader(f))
+    reviews = list(csv.DictReader(f))[:REVIEW_LIMIT]
 
 # 2. Analyze each review
 all_ratings = []

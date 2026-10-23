@@ -1,9 +1,9 @@
 """
-aggregation.py
+rating_aggregation.py
 Combine per-review ratings into one average rating per topic.
 """
 
-from questions import TOPICS
+from review_questions import TOPICS
 
 
 def aggregate(all_ratings):

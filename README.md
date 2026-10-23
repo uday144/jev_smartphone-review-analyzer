@@ -15,16 +15,17 @@ A topic's rating is kept only when the mention probability is at least `0.5`. Ra
 
 | File | Purpose |
 |---|---|
-| `main.py` | Reads the CSV, analyzes each review, prints the summary |
-| `analyzer.py` | Sends one review to Jev and converts answers into star ratings |
-| `questions.py` | Topic list and the 14 Jev questions |
-| `aggregation.py` | Averages per-review ratings into one score per topic |
-| `synthetic_phone_reviews.csv` | 50 synthetic sample reviews |
+| `run_analysis.py` | Reads the CSV, analyzes each review, prints the summary |
+| `review_analyzer.py` | Sends one review to Jev and converts answers into star ratings |
+| `review_questions.py` | Topic list and the 14 Jev questions |
+| `rating_aggregation.py` | Averages per-review ratings into one score per topic |
+| `smartphone_reviews.csv` | 50 synthetic sample reviews |
 
 ## Setup
 
 ```bash
-pip install python-dotenv typesafe-sdk
+python3 -m venv .venv
+.venv/bin/python -m pip install python-dotenv typesafe-sdk
 ```
 
 Create a `.env` file in the project root:
@@ -36,8 +37,10 @@ TYPESAFE_API_KEY=your_api_key_here
 ## Usage
 
 ```bash
-python main.py
+.venv/bin/python run_analysis.py
 ```
+
+The script currently processes only the first five reviews (`REVIEW_LIMIT = 5` in `run_analysis.py`).
 
 Example output:
 
